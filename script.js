@@ -110,7 +110,7 @@ const questions = [
     ],
   },
   {
-    text: "더 힘든 일정은?",
+    text: "더 나은 일정은?",
     answers: [
       { text: "우주공강", type: "우주공강" },
       { text: "4연강", type: "4연강" },

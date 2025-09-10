@@ -1,23 +1,5 @@
 window.professors = [
   {
-    name: "김원석",
-    mbti: "ESFP",
-    image:
-      "https://cse.pusan.ac.kr/sites/cse/atchmnfl/proIntro/thumbnail/temp_1745915760699100.jpg",
-    prefs: {
-      mbti: "ESFP",
-      lang: "",
-      food: "양식",
-      classTime: "",
-      classType: "",
-      estimateType: "중간고사",
-      schedule: "",
-      travel: "",
-      os: "Mac",
-      exam: "",
-    },
-  },
-  {
     name: "권동현",
     mbti: "ESFP",
     image:
@@ -35,7 +17,24 @@ window.professors = [
       exam: "",
     },
   },
-
+  {
+    name: "김원석",
+    mbti: "ESFP",
+    image:
+      "https://cse.pusan.ac.kr/sites/cse/atchmnfl/proIntro/thumbnail/temp_1745915760699100.jpg",
+    prefs: {
+      mbti: "ESFP",
+      lang: "",
+      food: "",
+      classTime: "",
+      classType: "",
+      estimateType: "",
+      schedule: "",
+      travel: "",
+      os: "",
+      exam: "",
+    },
+  },
   {
     name: "김정구",
     mbti: "",
