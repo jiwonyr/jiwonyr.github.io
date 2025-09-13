@@ -1,6 +1,24 @@
 //test
 window.professors = [
   {
+    name: "김호원",
+    mbti: "ENTJ",
+    image:
+      "https://cse.pusan.ac.kr/sites/cse/atchmnfl/proIntro/thumbnail/temp_1745915866039100.jpg",
+    prefs: {
+      mbti: "ENTJ",
+      lang: ["Python", "Java"],
+      food: ["한식", "일식"],
+      classTime: "오전",
+      classType: "실습",
+      estimateType: "텀 프로젝트",
+      schedule: "4연강",
+      travel: "바다",
+      os: ["Windows", "Mac"],
+      exam: "응용",
+    },
+  },
+  {
     name: "박진선",
     mbti: "ISTJ",
     image:
@@ -18,7 +36,7 @@ window.professors = [
       exam: "응용",
     },
   },
-   {
+  {
     name: "박영진",
     mbti: "INTP",
     image: "https://cse.pusan.ac.kr/sites/cse/atchmnfl/proIntro/thumbnail/temp_1745915942049100.jpg",
