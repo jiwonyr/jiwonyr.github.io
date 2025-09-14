@@ -71,6 +71,24 @@ window.professors = [
       exam: "응용",
     },
   },
+   {
+    name: "유영환",
+    mbti: "INFP",
+    image:
+      "./prof_photo/yuyonghwan.jpg",
+    prefs: {
+      mbti: "INFP",
+      lang: "C++",
+      food: "한식",
+      classTime: "오전",
+      classType: "실습",
+      estimateType: ["텀 프로젝트", "중간고사"],
+      schedule: "우주공강",
+      travel: "산",
+      os: "Windows",
+      exam: "응용",
+    },
+  },
   {
     name: "이명호",
     mbti: "ENTP",
