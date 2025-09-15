@@ -21,8 +21,7 @@ window.professors = [
   {
     name: "박진선",
     mbti: "ISTJ",
-    image:
-      "./prof_photo/parkjinsun.jpg",
+    image: "./prof_photo/parkjinsun.jpg",
     prefs: {
       mbti: "ISTJ",
       lang: "Python",
@@ -39,7 +38,8 @@ window.professors = [
   {
     name: "박영진",
     mbti: "INTP",
-    image: "https://cse.pusan.ac.kr/sites/cse/atchmnfl/proIntro/thumbnail/temp_1745915942049100.jpg",
+    image:
+      "https://cse.pusan.ac.kr/sites/cse/atchmnfl/proIntro/thumbnail/temp_1745915942049100.jpg",
     prefs: {
       mbti: "INTP",
       lang: "C",
@@ -71,11 +71,10 @@ window.professors = [
       exam: "응용",
     },
   },
-   {
+  {
     name: "유영환",
     mbti: "INFP",
-    image:
-      "./prof_photo/yuyonghwan.jpg",
+    image: "./prof_photo/yuyonghwan.jpg",
     prefs: {
       mbti: "INFP",
       lang: "C++",
@@ -92,8 +91,7 @@ window.professors = [
   {
     name: "이명호",
     mbti: "ENTP",
-    image:
-      "./prof_photo/leemyungho.jpg",
+    image: "./prof_photo/leemyungho.jpg",
     prefs: {
       mbti: "ENTP",
       lang: "Python",
@@ -142,4 +140,3 @@ window.professors = [
     },
   },
 ];
-

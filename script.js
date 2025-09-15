@@ -1,40 +1,142 @@
 /*************** 데이터 ***************/
 /* ========= MBTI 궁합표 & 유틸 ========= */
 const MBTI_COMPAT = {
-  "ENFJ-ENFJ": 2, "ENFJ-ENFP": 2, "ENFJ-ENTJ": 2, "ENFJ-ENTP": 2,
-  "ENFJ-ESFJ": 0, "ENFJ-ESFP": 0, "ENFJ-ESTJ": 0, "ENFJ-ESTP": 0,
-  "ENFJ-INFJ": 2, "ENFJ-INFP": 3, "ENFJ-INTJ": 2, "ENFJ-INTP": 2,
-  "ENFJ-ISFJ": 0, "ENFJ-ISFP": 3, "ENFJ-ISTJ": 0, "ENFJ-ISTP": 0,
-  "ENFP-ENFP": 2, "ENFP-ENTJ": 2, "ENFP-ENTP": 2, "ENFP-ESFJ": 0,
-  "ENFP-ESFP": 0, "ENFP-ESTJ": 0, "ENFP-ESTP": 0, "ENFP-INFJ": 3,
-  "ENFP-INFP": 2, "ENFP-INTJ": 3, "ENFP-INTP": 2, "ENFP-ISFJ": 0,
-  "ENFP-ISFP": 0, "ENFP-ISTJ": 0, "ENFP-ISTP": 0, "ENTJ-ENTJ": 2,
-  "ENTJ-ENTP": 2, "ENTJ-ESFJ": 1, "ENTJ-ESFP": 1, "ENTJ-ESTJ": 1,
-  "ENTJ-ESTP": 1, "ENTJ-INFJ": 2, "ENTJ-INFP": 3, "ENTJ-INTJ": 2,
-  "ENTJ-INTP": 3, "ENTJ-ISFJ": 1, "ENTJ-ISFP": 1, "ENTJ-ISTJ": 1,
-  "ENTJ-ISTP": 1, "ENTP-ENTP": 2, "ENTP-ESFJ": 1, "ENTP-ESFP": 1,
-  "ENTP-ESTJ": 1, "ENTP-ESTP": 1, "ENTP-INFJ": 3, "ENTP-INFP": 2,
-  "ENTP-INTJ": 3, "ENTP-INTP": 2, "ENTP-ISFJ": 1, "ENTP-ISFP": 1,
-  "ENTP-ISTJ": 1, "ENTP-ISTP": 1, "ESFJ-ESFJ": 2, "ESFJ-ESFP": 1,
-  "ESFJ-ESTJ": 2, "ESFJ-ESTP": 1, "ESFJ-INFJ": 0, "ESFJ-INFP": 0,
-  "ESFJ-INTJ": 1, "ESFJ-INTP": 1, "ESFJ-ISFJ": 2, "ESFJ-ISFP": 3, 
-  "ESFJ-ISTJ": 2, "ESFJ-ISTP": 3, "ESFP-ESFP": 1, "ESFP-ESTJ": 1,
-  "ESFP-ESTP": 1, "ESFP-INFJ": 0, "ESFP-INFP": 0, "ESFP-INTJ": 1,
-  "ESFP-INTP": 1, "ESFP-ISFJ": 3, "ESFP-ISFP": 1, "ESFP-ISTJ": 3,
-  "ESFP-ISTP": 1, "ESTJ-ESTJ": 2, "ESTJ-ESTP": 1, "ESTJ-INFJ": 0,
-  "ESTJ-INFP": 0, "ESTJ-INTJ": 1, "ESTJ-INTP": 3, "ESTJ-ISFJ": 2,
-  "ESTJ-ISFP": 3, "ESTJ-ISTJ": 2, "ESTJ-ISTP": 3, "ESTP-ESTP": 1,
-  "ESTP-INFJ": 0, "ESTP-INFP": 0, "ESTP-INTJ": 1, "ESTP-INTP": 1, 
-  "ESTP-ISFJ": 3, "ESTP-ISFP": 1, "ESTP-ISTJ": 3, "ESTP-ISTP": 1,
-  "INFJ-INFJ": 2, "INFJ-INFP": 2, "INFJ-INTJ": 2, "INFJ-INTP": 2,
-  "INFJ-ISFJ": 0, "INFJ-ISFP": 0, "INFJ-ISTJ": 0, "INFJ-ISTP": 0,
-  "INFP-INFP": 2, "INFP-INTJ": 2, "INFP-INTP": 2, "INFP-ISFJ": 0,
-  "INFP-ISFP": 0, "INFP-ISTJ": 0, "INFP-ISTP": 0, "INTJ-INTJ": 2,
-  "INTJ-INTP": 2, "INTJ-ISFJ": 1, "INTJ-ISFP": 1, "INTJ-ISTJ": 1, 
-  "INTJ-ISTP": 1, "INTP-INTP": 2, "INTP-ISFJ": 1, "INTP-ISFP": 1,
-  "INTP-ISTJ": 1, "INTP-ISTP": 1, "ISFJ-ISFJ": 2, "ISFJ-ISFP": 1,
-  "ISFJ-ISTJ": 2, "ISFJ-ISTP": 1, "ISFP-ISFP": 1, "ISFP-ISTJ": 1,
-  "ISFP-ISTP": 1, "ISTJ-ISTJ": 2, "ISTJ-ISTP": 1, "ISTP-ISTP": 1,
+  "ENFJ-ENFJ": 2,
+  "ENFJ-ENFP": 2,
+  "ENFJ-ENTJ": 2,
+  "ENFJ-ENTP": 2,
+  "ENFJ-ESFJ": 0,
+  "ENFJ-ESFP": 0,
+  "ENFJ-ESTJ": 0,
+  "ENFJ-ESTP": 0,
+  "ENFJ-INFJ": 2,
+  "ENFJ-INFP": 3,
+  "ENFJ-INTJ": 2,
+  "ENFJ-INTP": 2,
+  "ENFJ-ISFJ": 0,
+  "ENFJ-ISFP": 3,
+  "ENFJ-ISTJ": 0,
+  "ENFJ-ISTP": 0,
+  "ENFP-ENFP": 2,
+  "ENFP-ENTJ": 2,
+  "ENFP-ENTP": 2,
+  "ENFP-ESFJ": 0,
+  "ENFP-ESFP": 0,
+  "ENFP-ESTJ": 0,
+  "ENFP-ESTP": 0,
+  "ENFP-INFJ": 3,
+  "ENFP-INFP": 2,
+  "ENFP-INTJ": 3,
+  "ENFP-INTP": 2,
+  "ENFP-ISFJ": 0,
+  "ENFP-ISFP": 0,
+  "ENFP-ISTJ": 0,
+  "ENFP-ISTP": 0,
+  "ENTJ-ENTJ": 2,
+  "ENTJ-ENTP": 2,
+  "ENTJ-ESFJ": 1,
+  "ENTJ-ESFP": 1,
+  "ENTJ-ESTJ": 1,
+  "ENTJ-ESTP": 1,
+  "ENTJ-INFJ": 2,
+  "ENTJ-INFP": 3,
+  "ENTJ-INTJ": 2,
+  "ENTJ-INTP": 3,
+  "ENTJ-ISFJ": 1,
+  "ENTJ-ISFP": 1,
+  "ENTJ-ISTJ": 1,
+  "ENTJ-ISTP": 1,
+  "ENTP-ENTP": 2,
+  "ENTP-ESFJ": 1,
+  "ENTP-ESFP": 1,
+  "ENTP-ESTJ": 1,
+  "ENTP-ESTP": 1,
+  "ENTP-INFJ": 3,
+  "ENTP-INFP": 2,
+  "ENTP-INTJ": 3,
+  "ENTP-INTP": 2,
+  "ENTP-ISFJ": 1,
+  "ENTP-ISFP": 1,
+  "ENTP-ISTJ": 1,
+  "ENTP-ISTP": 1,
+  "ESFJ-ESFJ": 2,
+  "ESFJ-ESFP": 1,
+  "ESFJ-ESTJ": 2,
+  "ESFJ-ESTP": 1,
+  "ESFJ-INFJ": 0,
+  "ESFJ-INFP": 0,
+  "ESFJ-INTJ": 1,
+  "ESFJ-INTP": 1,
+  "ESFJ-ISFJ": 2,
+  "ESFJ-ISFP": 3,
+  "ESFJ-ISTJ": 2,
+  "ESFJ-ISTP": 3,
+  "ESFP-ESFP": 1,
+  "ESFP-ESTJ": 1,
+  "ESFP-ESTP": 1,
+  "ESFP-INFJ": 0,
+  "ESFP-INFP": 0,
+  "ESFP-INTJ": 1,
+  "ESFP-INTP": 1,
+  "ESFP-ISFJ": 3,
+  "ESFP-ISFP": 1,
+  "ESFP-ISTJ": 3,
+  "ESFP-ISTP": 1,
+  "ESTJ-ESTJ": 2,
+  "ESTJ-ESTP": 1,
+  "ESTJ-INFJ": 0,
+  "ESTJ-INFP": 0,
+  "ESTJ-INTJ": 1,
+  "ESTJ-INTP": 3,
+  "ESTJ-ISFJ": 2,
+  "ESTJ-ISFP": 3,
+  "ESTJ-ISTJ": 2,
+  "ESTJ-ISTP": 3,
+  "ESTP-ESTP": 1,
+  "ESTP-INFJ": 0,
+  "ESTP-INFP": 0,
+  "ESTP-INTJ": 1,
+  "ESTP-INTP": 1,
+  "ESTP-ISFJ": 3,
+  "ESTP-ISFP": 1,
+  "ESTP-ISTJ": 3,
+  "ESTP-ISTP": 1,
+  "INFJ-INFJ": 2,
+  "INFJ-INFP": 2,
+  "INFJ-INTJ": 2,
+  "INFJ-INTP": 2,
+  "INFJ-ISFJ": 0,
+  "INFJ-ISFP": 0,
+  "INFJ-ISTJ": 0,
+  "INFJ-ISTP": 0,
+  "INFP-INFP": 2,
+  "INFP-INTJ": 2,
+  "INFP-INTP": 2,
+  "INFP-ISFJ": 0,
+  "INFP-ISFP": 0,
+  "INFP-ISTJ": 0,
+  "INFP-ISTP": 0,
+  "INTJ-INTJ": 2,
+  "INTJ-INTP": 2,
+  "INTJ-ISFJ": 1,
+  "INTJ-ISFP": 1,
+  "INTJ-ISTJ": 1,
+  "INTJ-ISTP": 1,
+  "INTP-INTP": 2,
+  "INTP-ISFJ": 1,
+  "INTP-ISFP": 1,
+  "INTP-ISTJ": 1,
+  "INTP-ISTP": 1,
+  "ISFJ-ISFJ": 2,
+  "ISFJ-ISFP": 1,
+  "ISFJ-ISTJ": 2,
+  "ISFJ-ISTP": 1,
+  "ISFP-ISFP": 1,
+  "ISFP-ISTJ": 1,
+  "ISFP-ISTP": 1,
+  "ISTJ-ISTJ": 2,
+  "ISTJ-ISTP": 1,
+  "ISTP-ISTP": 1,
 };
 
 function mbtiKey(a, b) {
@@ -198,11 +300,30 @@ function nextQuestion() {
 
 /*************** 유사도 로직 ***************/
 /* ========= 4-파트 유사도(각 25%) ========= */
-function partRatio(matchKeys, userPrefs, profPrefs) {
-  const cand = matchKeys.filter((k) => profPrefs?.[k] && userPrefs?.[k]);
-  if (cand.length === 0) return 0; // 정보 없으면 0
-  const hit = cand.filter((k) => profPrefs[k] === userPrefs[k]).length;
-  return hit / cand.length; // 0.0 ~ 1.0
+const includesSimple = (haystack, needle) =>
+  String(haystack ?? "")
+    .toLowerCase()
+    .includes(String(needle ?? "").toLowerCase());
+
+function partRatio(matchKeys, userPrefs = {}, profPrefs = {}) {
+  const keys = [...new Set(matchKeys)];
+  let cand = 0,
+    hit = 0;
+
+  for (const k of keys) {
+    if (!(k in userPrefs) || !(k in profPrefs)) continue; // 둘 다 값 존재할 때만 비교
+    const u = userPrefs[k];
+    const p = profPrefs[k];
+    cand++;
+
+    if (Array.isArray(u)) {
+      // 학생이 여러 값을 고른 경우: 하나라도 포함되면 매치
+      if (u.some((v) => includesSimple(p, v))) hit++;
+    } else {
+      if (includesSimple(p, u)) hit++;
+    }
+  }
+  return cand === 0 ? 0 : hit / cand; // 0.0 ~ 1.0
 }
 
 /*
