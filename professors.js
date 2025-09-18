@@ -19,6 +19,24 @@ window.professors = [
     },
   },
   {
+    name: "김원석",
+    mbti: "INTJ",
+    image:
+      "./prof_photo/kimoneseok.png",
+    prefs: {
+      mbti: "INTJ",
+      lang: "",//일단 어케해야할지 몰라서 공란
+      food: "중식",
+      classTime: "오후",
+      classType: "실습 이론",
+      estimateType: "텀 프로젝트",
+      schedule: "4연강",
+      travel: "산",
+      os: "Mac",
+      exam: "암기",
+    },
+  },
+  {
     name: "박진선",
     mbti: "ISTJ",
     image: "./prof_photo/parkjinsun.jpg",
@@ -68,6 +86,24 @@ window.professors = [
       schedule: "4연강",
       travel: "바다",
       os: "Mac",
+      exam: "응용",
+    },
+  },
+  {
+    name: "우균",
+    mbti: "ESTJ",
+    image:
+      "https://cse.pusan.ac.kr/sites/cse/atchmnfl/proIntro/thumbnail/temp_1745916176742100.jpg",
+    prefs: {
+      mbti: "ESTJ",
+      lang: "C",
+      food: "한식",
+      classTime: "오전",
+      classType: "실습",
+      estimateType: "중간고사 텀 프로젝트",
+      schedule: "우주공강",
+      travel: "바다",
+      os: "Windows Mac",
       exam: "응용",
     },
   },
