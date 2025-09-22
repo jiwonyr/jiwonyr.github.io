@@ -397,11 +397,41 @@ function showResult() {
     exam: answersLog[8]?.type || "",
   };
 
+  // 최적 교수 매칭
   const { prof: matchProf, meta } = findMostSimilarProfessor(
     userMBTI,
     userPrefs
   );
 
+  // ====== 교수별 카운트 누적 (localStorage: "profCounts") ======
+  try {
+    const raw = localStorage.getItem("profCounts");
+    const counts = raw ? JSON.parse(raw) : {};
+    counts[matchProf.name] = (counts[matchProf.name] || 0) + 1;
+    localStorage.setItem("profCounts", JSON.stringify(counts));
+  } catch (e) {
+    console.warn("profCounts update failed:", e);
+  }
+
+  // ====== 마지막 결과 저장 (localStorage: "lastResult") ======
+  try {
+    localStorage.setItem(
+      "lastResult",
+      JSON.stringify({
+        userName,
+        userMBTI,
+        userPrefs,
+        pickedProfName: matchProf.name,
+        pickedProfImage: matchProf.image,
+        pickedPercent: meta.percent,
+        savedAt: Date.now(),
+      })
+    );
+  } catch (e) {
+    console.warn("lastResult save failed:", e);
+  }
+
+  // 결과 렌더링
   const title = `
     <h3 class="result-title">
       <b class="name-highlight">${userName}</b>님과 가장 잘 맞는 교수님은<br>
@@ -413,11 +443,10 @@ function showResult() {
     <div class="sim-bar"><div class="sim-bar-fill" style="width:${meta.percent}%"></div></div>
   `;
   const img = `<img src="${matchProf.image}" alt="${matchProf.name}" class="center-img">`;
-
   const tmiBtn = `
-  <div style="text-align:center; margin-top:12px;">
+    <div style="text-align:center; margin-top:12px;">
       <a class="btn-primary"
-        href="profDetail.html?prof=${encodeURIComponent(matchProf.name)}">
+         href="profDetail.html?prof=${encodeURIComponent(matchProf.name)}">
         ${matchProf.name} 교수님 자세히보기
       </a>
     </div>
@@ -432,19 +461,9 @@ function showResult() {
     </div>
   `;
 
-  // 진행바를 통째로 숨기고 싶다면 아래 주석 해제
+  // 진행바 섹션 숨기기(선택)
   const progressEl = document.querySelector(".progress");
   if (progressEl) progressEl.style.display = "none";
-
-  // ... showResult() 내부, matchProf 계산 직후에 추가
-  localStorage.setItem(
-    "lastResult",
-    JSON.stringify({
-      userName,
-      userMBTI,
-      userPrefs,
-    })
-  );
 }
 
 /*************** 시작 화면 로직 ***************/
@@ -464,7 +483,18 @@ function resetQuizState() {
 function startQuiz() {
   const nameInput = document.getElementById("userName");
   const errEl = document.getElementById("nameError");
-  userName = (nameInput?.value || "").trim();
+  const rawName = (nameInput?.value || "").trim();
+
+  // ★ 이름이 '다운로드'면: 카운트 txt로 저장하고 첫 화면으로 복귀
+  if (rawName === "다운로드") {
+    downloadProfCountsTxt(); // 아래 헬퍼 함수
+    nameInput.value = ""; // 입력창 초기화
+    returnToStart(); // 첫 화면으로 복귀 (아래 헬퍼)
+    return;
+  }
+
+  // 평소 로직
+  userName = rawName;
 
   // 이름 검증
   if (!userName) {
@@ -483,6 +513,45 @@ function startQuiz() {
 
   resetQuizState();
   showQuestion();
+}
+
+function downloadProfCountsTxt() {
+  let counts = {};
+  try {
+    counts = JSON.parse(localStorage.getItem("profCounts") || "{}");
+  } catch (e) {
+    console.warn("profCounts parse failed:", e);
+  }
+
+  const text = JSON.stringify(counts, null, 2);
+  const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  const ts = new Date().toISOString().slice(0, 19).replace(/[T:]/g, "-");
+  a.href = url;
+  a.download = `profCounts_${ts}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function returnToStart() {
+  // 내부 상태 초기화
+  resetQuizState();
+
+  // 화면 토글: 시작 카드만 보이게
+  const start = document.getElementById("start");
+  const stage = document.getElementById("stage");
+  if (start) start.style.display = "block";
+  if (stage) stage.style.display = "none";
+
+  // 진행바/결과 영역 안전하게 숨김
+  const progressEl = document.querySelector(".progress");
+  if (progressEl) progressEl.style.display = ""; // 기본값 복구
+  const result = document.getElementById("result");
+  if (result) result.style.display = "none";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
