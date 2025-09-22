@@ -493,6 +493,13 @@ function startQuiz() {
     return;
   }
 
+  if (rawName === "스토리지초기화") {
+    resetLocalStorage();
+    nameInput.value = "";
+    returnToStart();
+    return;
+  }
+
   // 평소 로직
   userName = rawName;
 
@@ -513,6 +520,10 @@ function startQuiz() {
 
   resetQuizState();
   showQuestion();
+}
+
+function resetLocalStorage() {
+  localStorage.removeItem("profCounts");
 }
 
 function downloadProfCountsTxt() {
