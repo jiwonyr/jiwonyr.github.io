@@ -93,7 +93,7 @@ window.professors = [
     name: "우균",
     mbti: "ESTJ",
     image:
-      "https://cse.pusan.ac.kr/sites/cse/atchmnfl/proIntro/thumbnail/temp_1745916176742100.jpg",
+      "./prof_photo/woogyun.png",
     prefs: {
       mbti: "ESTJ",
       lang: "C",
