@@ -21,11 +21,10 @@ window.professors = [
   {
     name: "김원석",
     mbti: "INTJ",
-    image:
-      "./prof_photo/kimoneseok.png",
+    image: "./prof_photo/kimoneseok.png",
     prefs: {
       mbti: "INTJ",
-      lang: "C# JavaScript",//일단 어케해야할지 몰라서 공란
+      lang: "C# JavaScript", //일단 어케해야할지 몰라서 공란
       food: "중식",
       classTime: "오후",
       classType: "실습 이론",
