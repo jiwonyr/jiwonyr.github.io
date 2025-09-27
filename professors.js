@@ -1,6 +1,23 @@
 //test
 window.professors = [
   {
+    name: "권동현",
+    mbti: "ENTJ",
+    image: "./prof_photo/kwondonghyun.jpg",
+    prefs: {
+      mbti: "ENTJ",
+      lang: "C",
+      food: "한식",
+      classTime: "오전",
+      classType: "이론",
+      estimateType: "중간고사",
+      schedule: "4연강",
+      travel: "바다",
+      os: "Windows",
+      exam: "응용",
+    },
+  },
+  {
     name: "김호원",
     mbti: "ENTJ",
     image:
